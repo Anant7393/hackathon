@@ -1,4 +1,4 @@
-# Bridge - T_HACKS 4.0 Project (Team RgR)
+# Bridge - T_HACKS 4.0 Project (Team Radiant)
 
 ### ..conneting ideas to investments..
 
