@@ -45,7 +45,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl: `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@learning.rosxd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+            mongoUrl: process.env.DATABASE_URL,
             autoRemove: 'disabled'
         },
         function(err){

@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config();
-var userName=process.env.DB_USERNAME;
-var password=process.env.DB_PASSWORD;
-mongoose.connect(`mongodb+srv://username:password@learning.rosxd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
+var DATABASE_URL=process.env.DATABASE_URL;
 
-db=mongoose.connection;
+var db=mongoose.connect(DATABASE_URL).then((data)=>{
+    // console.log(data);
+    console.log("success");
+}).catch((error)=>{
+    console.log("error");
+})
 
-db.on('error', console.error.bind(console, "Error connecting to MongoDB"));
-
-db.once('open', function(){
-    console.log('Connected to Database :: MongoDB');
-});
 
 
 module.exports = db;
