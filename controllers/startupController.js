@@ -1,5 +1,5 @@
 const Startup = require('../models/startup');
-
+require("../config/passport-strategy-local");
 module.exports.create = function(req,res){
     Startup.findOne({email: req.body.email},function(err, startup){
         if(err){console.log('Error in finding startup in database'); return;}

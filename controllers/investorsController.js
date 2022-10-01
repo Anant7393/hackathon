@@ -1,6 +1,7 @@
 const Investor = require('../models/investor');
 
 module.exports.create = function(req,res){
+    
     Investor.findOne({email: req.body.email},function(err, investor){
         if(err){console.log('Error in finding investor in database'); return;}
         if(!investor){

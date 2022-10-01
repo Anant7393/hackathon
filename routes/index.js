@@ -20,6 +20,13 @@ router.use('/signup',require('./signUp'));
 router.use('/investor',require('./investor'));
 router.use('/startup',require('./startup'));
 
+// logout
+router.get("/logout",(req,res)=>{
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+      });
+})
 
 
 /* 
