@@ -2,7 +2,7 @@ const startUpProfile=require("../models/startup");
 const investorProfile=require("../models/investor");
 module.exports.home = function(req,res){
     if(res.locals.user){
-        console.log(res.locals.user);
+        console.log("hello"+res.locals.user);
     }
     return res.render('index');
 }
@@ -64,7 +64,18 @@ module.exports.investor_db = function(req,res){// investor profile dashboard
     
 }
 module.exports.razorpay = function(req,res){
-    return res.render('razorpay');
+    console.log("id of user is "+req.user.id);
+    investorProfile.findById(req.user.id,function(err, investor){
+        if(err){console.log('Error in finding investor in database'); return;}
+        if(!investor){
+            
+            return res.redirect('back');
+        }else{
+            console.log(investor);
+            return res.render('razorpay');
+        }
+    });
+    
 }
 
 module.exports.comingsoon = function(req,res){

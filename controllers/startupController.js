@@ -19,7 +19,7 @@ module.exports.createSession = function(request,response){
     console.log("startup Signed In");
     if(request.user.email == "riya@cred.com")
         return response.redirect('/startup_db');
-    return response.redirect('/');
+    return response.redirect('/startup_db');
 }
 
 // ======= sign out ==============

@@ -2,10 +2,22 @@ const express = require('express');
 
 const router=express.Router();
 const homeController=require('../controllers/homeController');
+// contact model import
+const contact=require("../models/contact");
 
 
+router.get('/',homeController.home);// home page
+router.post("/",(req,res)=>{
 
-router.get('/',homeController.home);
+    contact.create(req.body).then((success)=>{
+        console.log(success);
+        console.log("contact fetched");
+
+    }).catch((error)=>{
+        console.log("error in contact fetching");
+    })
+
+})
 router.get('/login',homeController.login);
 router.get('/featured',homeController.featured);
 router.get('/schools_colleges',homeController.edu);

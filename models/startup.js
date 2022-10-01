@@ -25,7 +25,21 @@ const startupSchema = new mongoose.Schema({
     productDescription: {
         type: String,
         required: true
-    }
+    },
+    visitingSite:{
+        type:String,
+        required:false,
+    },
+    companyAddress:{
+        type:String,
+        required:false,
+    },
+    companyRegistrationNo:{// optonal if the startup is already registered or not
+        type:String,
+        requried:false,
+    },
+    
+
 });
 
 const Startup = mongoose.model('Startup',startupSchema);
